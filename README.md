@@ -8,6 +8,8 @@ A Studio Ghibli movie discovery app built with **Swift and SwiftUI**. Explore St
   <img src="https://github.com/FAROOQkhan10/Ghibli-App/blob/main/Screenshots/img2.png" width="250">
   <img src="https://github.com/FAROOQkhan10/Ghibli-App/blob/main/Screenshots/img1.png" width="250">
   <img src="https://github.com/FAROOQkhan10/Ghibli-App/blob/main/Screenshots/img3.png" width="250">
+  <img src="https://github.com/FAROOQkhan10/Ghibli-App/blob/main/Screenshots/img4.png" width="250">
+  <img src="https://github.com/FAROOQkhan10/Ghibli-App/blob/main/Screenshots/img5.png" width="250">
 </div>
 
 ## ✨ Features
