@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol PeopleAPIProtocol: Sendable {
+    func loadPeople(from URLString: String) async throws -> People
+}

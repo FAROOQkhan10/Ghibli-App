@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GhibliProtocol {
+protocol FilmAPIProtocol {
     func loadFilms() async throws -> [Film]
-    func loadPeople(from URLString: String) async throws -> People
+    func searchFilm(searchItem: String) async throws -> [Film]
 }

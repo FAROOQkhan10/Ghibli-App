@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    
+    let filmViewModel : FilmViewModel
+    let favoriteModel : FavoritesViewModel
+    
+    var films: [Film]{
+        let favorites = favoriteModel.favoritesIds
+        switch filmViewModel.state{
+        case .loaded(let film):
+            return film.filter{
+                favorites.contains($0.id)
+            }
+        default: return []
+        }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            Group{
+                if films.isEmpty {
+                    ContentUnavailableView("No favorites yet", systemImage: "heart")
+                }
+                else{
+                    FilmListView(films: films, favoriteModel: favoriteModel)
+                }
+            }
+            .navigationTitle("Favorites")
+        }
     }
 }
 
 #Preview {
-    FavoritesView()
+    FavoritesView(filmViewModel: FilmViewModel(filmService: FilmApiService()), favoriteModel: FavoritesViewModel(service: FavoriteService()))
 }

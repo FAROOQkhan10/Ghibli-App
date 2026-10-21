@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct GhibliAppApp: App {
+struct GhibliApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

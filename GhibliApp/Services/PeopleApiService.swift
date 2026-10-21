@@ -6,3 +6,33 @@
 //
 
 import Foundation
+
+
+struct PeopleApiService : PeopleAPIProtocol{
+    
+    //private let apiURL = "https://ghibliapi.vercel.app/people"
+    
+    func loadPeople(from peopleUrl:String) async throws -> People {
+        do{
+            guard let url = URL(string: peopleUrl) else{
+                throw APIError.invalidURL
+            }
+            
+            let (data, response) = try await URLSession.shared.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200..<300).contains(httpResponse.statusCode) else{
+                throw APIError.invalidResponse
+            }
+            
+            return try JSONDecoder().decode(People.self, from: data)
+        }
+        catch let error as DecodingError{
+            throw APIError.decodingError(error)
+        }
+        catch let error as URLError{
+            throw APIError.networkError(error)
+        }
+    }
+    
+}
